@@ -1,5 +1,5 @@
 name: Firstworkflow
-#run-name: ${{github.actor}} is deploying
+run-name: ${{github.actor}} is deploying
 on: [push]
 jobs:
   shell-commands:
@@ -7,10 +7,6 @@ jobs:
     steps:
       - name: Echo a String
         run: echo "Hello world"
-      - name: Node version check
-        run: node -v
-      - name: Nom version check  
-        run: npm -v  
       - name: Multiline commands
         run: |
             node -v
