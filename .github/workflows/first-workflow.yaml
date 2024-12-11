@@ -9,7 +9,7 @@ jobs:
         run: echo "Hello worlds"
       - name: Multiline commands
         run: |
-            nod -v
+            node -v
             npm -v
   parallel-job-mac:
     runs-on: macos-latest
