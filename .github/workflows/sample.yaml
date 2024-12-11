@@ -1,0 +1,13 @@
+name: sample-workflow
+run-name: ${{github.actor}} is deploying
+on: [push]
+jobs:
+  shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a String
+        run: echo "Hello world"
+      - name: Multiline commands
+        run: |
+            node -v
+            npm -v
