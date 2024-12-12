@@ -22,6 +22,6 @@ jobs:
           shell: python
           run: |
             import platform
-            print(platform,processor())     
+            print(platform.processor())     
 
 
