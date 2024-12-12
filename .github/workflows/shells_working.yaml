@@ -11,4 +11,15 @@ jobs:
                 echo $GITHUB_SHA
                 echo $GITHUB_REPOSITORY
                 echo $GITHUB_WORKSPACE
+    display-winodws:
+        runs-on: windows-latest
+        steps:
+        - name: Display working direcory and List of files
+          run: |
+             Get-Location
+             dir
+             echo $GITHUB_SHA
+             echo $GITHUB_REPOSITORY
+             echo $GITHUB_WORKSPACE
+
 
