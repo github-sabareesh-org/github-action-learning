@@ -1,0 +1,27 @@
+name: shell-override
+on: [push]
+defaults:
+  run:
+    shell: bash
+    working-directory: /dev/abc
+jobs:
+    display-windows-shell:
+        runs-on: windows-latest
+        defaults:
+          run:
+            shell: pwsh
+        steps:
+        - name: Display working direcory and List of files
+          run: |
+             Get-Location
+             dir
+             echo $GITHUB_SHA
+             echo $GITHUB_REPOSITORY
+             echo $GITHUB_WORKSPACE
+        - name: python Shell
+          shell: python
+          run: |
+            import platform
+            print(platform,processor())     
+
+
