@@ -1,17 +1,15 @@
-name: My NPM package workflow
-on: push
+name: Simple Action
+on: [push]
 jobs:
-  node-20-release:
+  simple-action:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
-        - uses: actions/setup-node@v4
-          with:
-            node-version: '20'
-        - name: files and folders
-          run: |
-            pwd
-            ls     
+      - name: simple js action
+        id: greet  
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: Sabareesh
+        
 
 
           
