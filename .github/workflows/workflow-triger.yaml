@@ -1,0 +1,11 @@
+name: workflow-run
+on:
+    workflow_run: 
+        workflows: [Repo-events]
+        types: 
+            - completed
+jobs:
+    Hello-world:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "I am running because the Repo event is completed"            
