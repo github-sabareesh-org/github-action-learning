@@ -33,5 +33,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - run: echo $GITHUB_REF
+    input-options:
+        runs-on: ubuntu-latest
+        steps:
+            - name: input-values
+              run: |
+               echo "String:${{inputs.name}}" 
+               echo "The option selected:${{inputs.option}} "     
           
      
