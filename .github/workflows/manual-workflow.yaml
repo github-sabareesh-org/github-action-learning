@@ -7,6 +7,26 @@ on:
                 type: string
                 required: true
                 default: "Sabareesh"
+            number:
+                description: Enter a number
+                type: number
+                default: 4
+            option:
+                description: Please select an option
+                type: choice
+                required: true
+                options:
+                    - AWS
+                    - Linux
+                    - CCNA        
+                default: "AWS" 
+            boolean:
+                description: CCNA completed
+                required: false
+                type: boolean
+            environmnet:
+                description: "Environment"
+                type: environment           
 
 jobs:
     log-info:
