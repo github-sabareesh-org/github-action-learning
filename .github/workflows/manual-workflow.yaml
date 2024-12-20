@@ -1,6 +1,12 @@
 name: manual workflow
 on:
     workflow_dispatch: 
+        inputs:
+            name:
+                description: A string Input 
+                type: string
+                required: true
+                default: "Sabareesh"
 
 jobs:
     log-info:
