@@ -1,11 +1,26 @@
 name: environment and context
 on:
     [push]
+env:
+    WF_LEVEL_ENV: Available for all the jobs    
 jobs:
     env-context:
         runs-on: ubuntu-latest
+    
+        if: github.ref == 'refs/heads/main'
+        env:
+            JOB_LEVEL_ENV: Available to all the steps in this Job(env-context)
+
         steps:
             - name: LOG ENV variable
               run: echo $GITHUB_REF
             - name: LOG Context
-              run: echo '${{github.ref}}'      
+              run: echo '${{github.ref}}'  
+            - name: LOG custom envt var
+              env:
+                STEP_LEVEL_ENV: Available only at the step level
+
+              run: |
+                echo ${{env.STEP_LEVEL_ENV}}
+                echo ${{env.WF_LEVEL_ENV}}
+                echo ${{env.JOB_LEVEL_ENV}}
