@@ -8,7 +8,7 @@ jobs:
     
         if: github.ref == 'refs/heads/main'
         env:
-            JOB_LEVEL_ENV: Available to all the steps in this Job(env-context)
+            JOB_LEVEL_ENV: Available to all the steps in this Job env-context
 
         steps:
             - name: LOG ENV variable
