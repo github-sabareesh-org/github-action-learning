@@ -1,6 +1,5 @@
 name: environment and context
-on:
-    [push]
+on:  [push]
 env:
     WF_LEVEL_ENV: Available for all the jobs    
 jobs:
