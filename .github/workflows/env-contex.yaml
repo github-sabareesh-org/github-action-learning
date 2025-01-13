@@ -18,8 +18,13 @@ jobs:
             - name: LOG custom envt var
               env:
                 STEP_LEVEL_ENV: Available only at the step level
-
+                WF_LEVEL_ENV: NEW WORKFLOW ENV VALUE AT STEP
               run: |
                 echo ${{env.STEP_LEVEL_ENV}}
                 echo ${{env.WF_LEVEL_ENV}}
                 echo ${{env.JOB_LEVEL_ENV}}
+            - name: new-step
+              run: |
+                echo ${{env.JOB_LEVEL_ENV}}
+                echo ${{env.WF_LEVEL_ENV}}
+
