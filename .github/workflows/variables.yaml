@@ -12,7 +12,7 @@ env:
     OVERWRITTEN: "I will be Overwritten "
 jobs:
     echo:
-        runs-on: ubuntu-latest
+        runs-on: ${{vars.JOBS_RUNNER}}
         env:
             JOBS_VAR: "I Am a job env var"
             OVERWRITTEN: "I have been overwritten at the job level"
@@ -24,9 +24,10 @@ jobs:
               run: |
                   echo step env var : $STEP_VAR
                   echo step env var 2: $STEP_VAR2
-                  echo job env var: $JOB_VAR
+                  echo job env var: $JOBS_VAR
                   echo workflow env var: $WORKFLOW_VAR
                   echo Overwritten: $OVERWRITTEN  
+                  echo JOB_RUNNER: ${{vars.JOBS_RUNNER}}
             - name: "Over write Job variable" 
               env:
                 OVERWRITTEN: "I have been Overwritten at Step level"          
