@@ -10,6 +10,9 @@ on:
 env:
     WORKFLOW_VAR: "I am a workflow env var"
     OVERWRITTEN: "I will be Overwritten "
+    BOOLEAN_SECREAT: ${{secrets.BOOLEAN_SECRET}}
+    ENV_LEVL_VAR: ${{vars.REPO_LEVEL_VAR}}
+    ORG_LEVEL_VAR: ${{vars.ORG_LEVEL_VAR}}
 jobs:
     echo:
         runs-on: ${{vars.JOBS_RUNNER}}
@@ -17,6 +20,10 @@ jobs:
             JOBS_VAR: "I Am a job env var"
             OVERWRITTEN: "I have been overwritten at the job level"
         steps:
+            - name: Runs only if Boolean_Secret is true
+              if: env.BOOLEAN_SECREAT=='true'
+              run: echo I ran
+
             - name: "Print ENV Variables" 
               env:
                 STEP_VAR: "I am a step env var"
