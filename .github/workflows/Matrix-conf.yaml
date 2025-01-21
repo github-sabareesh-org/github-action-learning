@@ -1,0 +1,27 @@
+name: matrix-1-config
+on: [push]
+jobs:
+    node-matrix:
+        continue-on-error: false
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, ubuntu-18.04]
+                node-version: [ 15, 16]
+                include:
+                    - os: ubuntu-latest
+                      is-ubuntu: true
+                    - experimental: true  
+                    - os: ubuntu-latest
+                      node-version: 16
+                      experimental: true  
+        runs-on: ${{matrix.os}} 
+        steps:
+            - name: print Matrix
+              run: echo '${{toJson(matrix)}}'
+            - name: Setup-node
+              uses: actions/setup-node@v3
+              with:
+                node-version: ${{matrix.node-vs}} 
+            - name: verify-node-js
+              run: node -v
+                
