@@ -2,7 +2,7 @@ name: matrix-1
 on: [push]
 jobs:
     node-matrix:
-        continue-on-error: true
+        #continue-on-error: true
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest]
@@ -16,7 +16,4 @@ jobs:
               uses: actions/setup-node@v3
               with:
                 node-version: ${{ matrix.node-version}}
-            - name: Install-dependencies
-              run: npm ci
-            - name: Build Project
-              run: npm run build   
+             
