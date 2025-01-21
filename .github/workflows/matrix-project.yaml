@@ -1,0 +1,18 @@
+name: working-with-matrix
+on:
+    workflow_dispatch: 
+jobs:
+    backwards-compatibility:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-vs: [18.x, 20.x, and 21.x.]
+                os: [ubuntu-latest, windows-latest]
+        name: ${{matrix.os}}-${{matrix.node-vs}}
+        steps:
+            - name: Setup-node
+              uses: actions/setup-node@v3
+              with:
+                node-version: ${{matrix.node-vs}} 
+            - name: Performing-some-test
+              run: echo ""Running tests on OS ${{matrix.os}} and NodeJS ${{matrix.node-vs}} "         
