@@ -1,8 +1,7 @@
 name: creating-reusable-wf-2
 on:
     workflow_dispatch: 
-jobs:
-    
+jobs:  
     deploy:
         uses: ./.github/workflows/reusable.yaml
         with:
