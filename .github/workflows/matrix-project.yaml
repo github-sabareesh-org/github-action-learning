@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-vs: [18.x, 20.x, and 21.x.]
+                node-vs: [18.x, 20.x, 21.x]
                 os: [ubuntu-latest, windows-latest]
                 include:
                     - os: ubuntu-latest

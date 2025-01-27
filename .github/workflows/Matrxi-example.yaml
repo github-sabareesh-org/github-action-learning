@@ -1,20 +1,19 @@
-name: matrix-1-configs-new
+name: matrix-1-config
 on: [push]
 jobs:
     node-matrix:
         continue-on-error: false
         strategy:
             matrix:
-                os: [ubuntu-latest, windows-latest, ubuntu-18.04]
-                node-version: [ 15, 16]
+                os: [ubuntu-latest, windows-latest]
+                node-version: [ 14]
                 
                 include:
-                    - os: ubuntu-latest
-                      is-ubuntu: true
-                    - experimental: true  
-                    - os: ubuntu-latest
+                    - os: windows-latest
                       node-version: 16
-                      experimental: false  
+                      custom-variable: custom-value
+
+                     
         runs-on: ${{matrix.os}} 
         steps:
             - name: print Matrix
