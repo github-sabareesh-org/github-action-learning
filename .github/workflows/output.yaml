@@ -1,4 +1,4 @@
-name: matrix-1-config
+name: outputs-1
 on: [push]
 jobs:
     outputs-new:
