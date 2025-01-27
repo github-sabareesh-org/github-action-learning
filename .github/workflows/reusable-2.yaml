@@ -1,0 +1,19 @@
+name: creating-reusable-wf-2
+on:
+    workflow_dispatch: 
+jobs:
+    
+    deploy:
+        uses: ./.github/workflows/reusable.yaml
+        with:
+            target-directory: ec2-user
+    print-outputs:
+        runs-on: ubuntu-latest
+        needs: deploy
+        steps:
+            - name: print outputs
+              run: |
+               echo "Build Status ${{needs.deploy.outputs.build-statusbuild-status}}"
+               echo "URL ${{needs.deploy.outputs.url}}"
+
+
