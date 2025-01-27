@@ -7,10 +7,10 @@ on:
         outputs:
             build-status:
                 description: The Status of the build process
-                value: ${{jobs.deploy.outputs.build-status}}
+                value: ${{jobs.deploy.result.build-status}}
             url:
                 description: The URL of the deployed version
-                value: ${{jobs.deploy.outputs.url}}
+                value: ${{jobs.deploy.result.url}}
 jobs:
     deploy:
         runs-on: ubuntu-latest
