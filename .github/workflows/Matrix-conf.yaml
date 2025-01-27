@@ -14,7 +14,9 @@ jobs:
                     - experimental: true  
                     - os: ubuntu-latest
                       node-version: 16
-                      experimental: false  
+                      experimental: false 
+                exclude:
+                  - os: windows-latest      
         runs-on: ${{matrix.os}} 
         steps:
             - name: print Matrix
