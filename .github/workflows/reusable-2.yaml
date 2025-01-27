@@ -13,7 +13,7 @@ jobs:
         steps:
             - name: print outputs
               run: |
-               echo "Build Status ${{needs.deploy.outputs.build-statusbuild-status}}"
+               echo "Build Status ${{needs.deploy.outputs.build-status}}"
                echo "URL ${{needs.deploy.outputs.url}}"
 
 
