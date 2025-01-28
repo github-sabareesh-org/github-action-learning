@@ -9,4 +9,4 @@ jobs:
     sleep-job:
         runs-on: ubuntu-latest
         steps:
-            - run: sleep 300                
+            - run: sleep 30               
