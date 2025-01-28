@@ -5,6 +5,7 @@ on:
             environment:
                 type: environment
                 required: true
+concurrency: concurrency-1                
 jobs:
     sleep-job:
         runs-on: ubuntu-latest
