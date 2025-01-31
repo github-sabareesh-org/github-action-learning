@@ -1,26 +1,24 @@
-name: caching and artifacts
+name: Caching and Artifacts
 on: [workflow_dispatch]
 jobs:
-  ulab:
+  use-axios:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout
-      - name: cache node modules
-        id: cache-depe
+      - uses: actions/checkout@v3
+      - name: Cache node modules
+        id: cache-dependencies
         uses: actions/cache@v3
         with:
-            path: ~/.npm
-            key: "npm-cache"
-      - name: Display Cache output
-        run: echo '${{toJson(steps.cache-depe.outputs)}}'      
-      - name: install dep
+          path: ~/.npm
+          key: "npm-cache"
+      - name: Display Cache Output
+        run: echo '${{ toJSON(steps.cache-dependencies.outputs) }}'
+      - name: Install dependencies
         run: npm install
-      - name: use axios
+      - name: Use Axios
         uses: actions/github-script@v6
         with:
-            script: |
-             const axios = require('axios')
-             const res= await axios ('https://abahac.com',{headers:{Accept: 'text/plain'}})
-             console.log(res.data)
-
-
+          script: |
+            const axios = require('axios');
+            const res = await axios('https://icanhazdadjoke.com/', { headers: { Accept: 'text/plain' } })
+            console.log(res.data)
