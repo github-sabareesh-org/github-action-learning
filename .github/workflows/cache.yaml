@@ -1,7 +1,7 @@
 name: caching and artifacts
 on: [workflow_dispatch]
 jobs:
-  use-npm:
+  ulab:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout
